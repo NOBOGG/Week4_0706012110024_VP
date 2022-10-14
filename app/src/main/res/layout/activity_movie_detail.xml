@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tv_company_logo"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#333333"
+    tools:context=".view.MovieDetail">
+
+    <ImageView
+        android:id="@+id/img_poster_movie_detail"
+        android:layout_width="0dp"
+        android:layout_height="240dp"
+        android:filterTouchesWhenObscured="false"
+        android:fitsSystemWindows="false"
+        android:focusableInTouchMode="false"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/tv_title_movie_detail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="180dp"
+        android:text="@string/nulldata"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="240dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_poster_movie_detail">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_overview_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Overview:"
+                android:textColor="#FF9800"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/rv_product_company_logo"
+                app:layout_constraintTop_toBottomOf="@+id/rv_product_company_logo" />
+
+            <TextView
+                android:id="@+id/tv_country_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Country"
+                android:textColor="#FF9800"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/rv_genre"
+                app:layout_constraintTop_toBottomOf="@+id/rv_genre" />
+
+            <TextView
+                android:id="@+id/tv_company_logo_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Company"
+                android:textColor="#FF9800"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv_country_detail"
+                app:layout_constraintTop_toBottomOf="@+id/rv_production_country" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_genre"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tv_genre_detail"
+                app:layout_constraintTop_toBottomOf="@+id/tv_genre_detail">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_production_country"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                app:layout_constraintEnd_toEndOf="@+id/rv_genre"
+                app:layout_constraintStart_toStartOf="@+id/tv_company_logo_detail"
+                app:layout_constraintTop_toBottomOf="@+id/tv_country_detail" />
+
+            <TextView
+                android:id="@+id/tv_overview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/nulldata"
+                android:textColor="#FF9800"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/tv_overview_detail"
+                app:layout_constraintTop_toBottomOf="@+id/tv_overview_detail" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_product_company_logo"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                app:layout_constraintEnd_toEndOf="@+id/rv_production_country"
+                app:layout_constraintStart_toStartOf="@+id/tv_company_logo_detail"
+                app:layout_constraintTop_toBottomOf="@+id/tv_company_logo_detail" />
+
+            <TextView
+                android:id="@+id/tv_genre_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/Genre"
+                android:textColor="#FF9800"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/background_load"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#090909"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
