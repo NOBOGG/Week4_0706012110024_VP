@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.owen.week4retrofit.R
 import com.owen.week4retrofit.databinding.CardNowPlayingBinding
+import com.owen.week4retrofit.helper.Const
 import com.owen.week4retrofit.model.Result
 import com.owen.week4retrofit.view.MovieDetail
 import org.w3c.dom.Text
@@ -54,6 +56,10 @@ class NowPlayingAdapter(private val dataSet: ArrayList<Result>) :
             intent.putExtra("movie_id",dataSet[position].id)
             it.context.startActivity(intent)
         }
+        Glide.with(viewHolder.itemView.context)
+            .load(Const.IMG_URL + dataSet[position].poster_path)
+            .into(viewHolder.binding.imgMoviePoster)
+
     }
 
     // Return the size of your dataset (invoked by the layout manager)

@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.owen.week4retrofit.adapter.NowPlayingAdapter
 import com.owen.week4retrofit.databinding.ActivityMainBinding
 import com.owen.week4retrofit.helper.Const
@@ -29,10 +31,13 @@ class MainActivity : AppCompatActivity() {
         viewModel.getNowPlaying(Const.API_KEY, "en-US", 1)
 
         viewModel.nowPlaying.observe(this, Observer { response->
-            binding.rvMain.layoutManager = LinearLayoutManager(this)
+
+            binding.rvMain.layoutManager = GridLayoutManager(baseContext,2)
             adapter = NowPlayingAdapter(response)
             binding.rvMain.adapter = adapter
+
         })
+
 
     }
 }

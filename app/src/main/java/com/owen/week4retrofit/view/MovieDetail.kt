@@ -68,7 +68,7 @@ class MovieDetail : AppCompatActivity() {
                 Glide.with(applicationContext)
                     .load(Const.IMG_URL + response.backdrop_path)
                     .into(binding.imgPosterMovieDetail)
-            }
+                }
 
                 //Movies Overview
                 binding.tvOverview.apply {
